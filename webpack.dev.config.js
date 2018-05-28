@@ -10,10 +10,16 @@ module.exports = {
     filename: 'bundle.js',
   },
   module: {
-    rules: [{
-         test: /\.js$/,
-         use: ['babel-loader?cacheDirectory=true'],
-         include: path.join(__dirname, 'src')
-     }]
-  }
+    rules: [
+      {
+        test: /\.js$/,
+        use: ['babel-loader?cacheDirectory=true'],
+        include: path.join(__dirname, 'src'),
+      },
+    ],
+  },
+  devServer: {
+    contentBase: path.join(__dirname, './dist'),
+    historyApiFallback: true,
+  },
 }
